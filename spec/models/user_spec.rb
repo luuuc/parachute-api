@@ -14,7 +14,8 @@ RSpec.describe User, type: :model do
 
     it { should validate_presence_of(:name) }
     it { should validate_uniqueness_of(:name).case_insensitive }
-    it { should validate_presence_of(:email) }
+    #it { should validate_presence_of(:email) }
+    it { should validate_uniqueness_of(:email).case_insensitive }
     it { should validate_inclusion_of(:language).in_array(I18n.available_locales.map(&:to_s)) }
     it { should validate_inclusion_of(:time_zone).in_array(ActiveSupport::TimeZone.all.map(&:name)) }
   end
