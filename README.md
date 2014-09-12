@@ -2,6 +2,9 @@ Parachute
 =========
 
 [![Code Climate](https://codeclimate.com/github/luuuc/parachute-api/badges/gpa.svg)](https://codeclimate.com/github/luuuc/parachute-api)
+[![Test Coverage](https://codeclimate.com/github/luuuc/parachute-api/badges/coverage.svg)](https://codeclimate.com/github/luuuc/parachute-api)
+[![Build Status](https://travis-ci.org/luuuc/parachute-api.svg?branch=master)](https://travis-ci.org/luuuc/parachute-api)
+[![Dependency Status](https://gemnasium.com/luuuc/parachute-api.svg)](https://gemnasium.com/luuuc/parachute-api)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
