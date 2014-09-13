@@ -8,7 +8,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'kaminari'
 gem 'active_model_serializers'
 
-gem 'sdoc', '~> 0.4.0', group: :doc
+group :doc do
+  gem 'sdoc', '~> 0.4.0'
+  gem 'redcarpet', '~> 2.1.1'
+end
 
 group :development do
   gem 'spring'
