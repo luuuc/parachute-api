@@ -5,18 +5,16 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       resource :profile, only: [:show, :update]
-      resources :users
-      resources :apps
 
-      # resources :notice, only: :create
-      # resources :issues do
-      #   resources :occurences
-      # end
+      resources :notice, only: :create
+      resources :exceptions do
+        resources :occurences
+      end
 
       namespace :manage do
-        resources :users
+        resources :users, only: [:index, :show, :update, :destroy]
         resources :apps
-        resources :invitations
+        resources :invitations, only: [:index, :show, :create, :destroy]
       end
     end
   end

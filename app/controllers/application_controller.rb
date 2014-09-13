@@ -11,10 +11,6 @@ class ApplicationController < ActionController::Base
       current_user || not_authorized
     end
 
-    def authenticate_admin
-      (authenticate && current_user.admin) || not_authorized
-    end
-
     def current_user
       @current_user ||= authenticate_with_http_token do |token, options|
         User.find_by(authentication_token: token)
