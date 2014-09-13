@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Watcher, type: :model do
-
-
   it "should have a factory" do
     expect(FactoryGirl.build(:watcher)).to be_valid
   end
