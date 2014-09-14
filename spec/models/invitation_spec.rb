@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Invitation, :type => :model do
+RSpec.describe Invitation, type: :model do
   it "should have a factory" do
     expect(FactoryGirl.build(:invitation)).to be_valid
   end
