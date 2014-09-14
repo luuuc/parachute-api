@@ -39,19 +39,6 @@ RSpec.describe Api::V1::Manage::UsersController, type: :controller do
       end
     end
 
-    # context "POST #create" do
-    #   let(:app_params) { FactoryGirl.attributes_for(:app) }
-
-    #   before do
-    #     post :create, app: app_params
-    #   end
-
-    #   it "should respond successfully with an HTTP 201 status code" do
-    #     expect(response).to be_success
-    #     expect(response.code).to eq("201")
-    #   end
-    # end
-
     context "PATCH #update" do
       let!(:user) { create(:user) }
 

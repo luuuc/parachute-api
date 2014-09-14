@@ -19,10 +19,8 @@ RSpec.describe Api::V1::Manage::AppsController, type: :controller do
       end
 
       it "loads all of the apps" do
-        #expect(assigns(:apps)).to match_array(apps)
         response_array = json['apps'].map { |a| a['name'] }
-        apps_array = apps.map(&:name)
-        expect(response_array).to match_array apps_array
+        expect(response_array).to match_array apps.map(&:name)
       end
     end
 

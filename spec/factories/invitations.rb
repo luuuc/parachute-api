@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :invitation do
-    association :admin
+    association :user, factory: :admin, strategy: :create
 
     name { Faker::Name.first_name }
     email { Faker::Internet.email }

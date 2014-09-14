@@ -18,6 +18,7 @@ module Api
 
           def invitation_params
             params.require(:invitation).permit(:name, :email, :admin, :language, :time_zone)
+                  .merge(invited_by: current_user.id)
           end
       end
     end

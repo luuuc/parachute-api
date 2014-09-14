@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140913093756) do
   create_table "apps", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name",                         null: false
     t.string   "api_key",                      null: false
-    t.hstore   "repository_data", default: {}, null: false
+    t.hstore   "repository_data", default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,12 +39,13 @@ ActiveRecord::Schema.define(version: 20140913093756) do
   end
 
   create_table "invitations", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.uuid     "invited_by",                    null: false
-    t.string   "name",                          null: false
-    t.string   "email",                         null: false
-    t.boolean  "admin",         default: false
-    t.hstore   "settings_data", default: {},    null: false
-    t.string   "token",                         null: false
+    t.uuid     "invited_by",                      null: false
+    t.uuid     "invited_user_id"
+    t.string   "name",                            null: false
+    t.string   "email",                           null: false
+    t.boolean  "admin",           default: false
+    t.hstore   "settings_data",   default: "",    null: false
+    t.string   "token",                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,7 +91,7 @@ ActiveRecord::Schema.define(version: 20140913093756) do
     t.boolean  "admin",                      default: false
     t.string   "name",                                       null: false
     t.string   "email",                                      null: false
-    t.hstore   "settings_data",              default: {},    null: false
+    t.hstore   "settings_data",              default: "",    null: false
     t.string   "password_digest",                            null: false
     t.string   "authentication_token",                       null: false
     t.string   "password_reset_token"
