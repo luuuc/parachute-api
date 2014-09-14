@@ -3,7 +3,7 @@ module Apify
 
   included do
     before_action :not_implemented, only: [:index, :show, :create, :update, :destroy]
-    before_action :set_resource, only: [:show, :update, :destroy]
+    before_action :resource, only: [:show, :update, :destroy]
   end
 
   # GET /api/v{api_version}/{plural_resource_name}

@@ -2,6 +2,7 @@ class CreateInvitations < ActiveRecord::Migration
   def change
     create_table :invitations, id: :uuid do |t|
       t.uuid :invited_by, null: false
+      t.uuid :invited_user_id
 
       t.string :name, null: false
       t.string :email, null: false

@@ -5,7 +5,7 @@ class Invitation < ActiveRecord::Base
 
   belongs_to :user, foreign_key: :invited_by
 
-  before_create { generate_token(:authentication_token, {secure: true}) }
+  before_create { generate_token(:token, {secure: true}) }
 
   validates :name, presence: true
   validates :email, email: true,
