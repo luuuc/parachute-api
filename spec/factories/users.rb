@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
     admin false
-    name { Faker::Name.first_name }
+    name { Faker::Internet.user_name(nil, ['-']) }
     email { Faker::Internet.email }
     settings_data {
       {
