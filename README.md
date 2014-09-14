@@ -3,6 +3,7 @@ Parachute
 
 [![Code Climate](https://codeclimate.com/github/luuuc/parachute-api/badges/gpa.svg)](https://codeclimate.com/github/luuuc/parachute-api)
 [![Test Coverage](https://codeclimate.com/github/luuuc/parachute-api/badges/coverage.svg)](https://codeclimate.com/github/luuuc/parachute-api)
+[![Coverage Status](https://coveralls.io/repos/luuuc/parachute-api/badge.png)](https://coveralls.io/r/luuuc/parachute-api)
 [![Dependency Status](https://gemnasium.com/luuuc/parachute-api.svg)](https://gemnasium.com/luuuc/parachute-api)
 [![Build Status](https://semaphoreapp.com/api/v1/projects/a1d25f5f-ceb3-40b8-8334-7eea77621179/248030/shields_badge.png)](https://semaphoreapp.com/luuuc/parachute-api)
 

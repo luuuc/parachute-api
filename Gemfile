@@ -32,6 +32,7 @@ group :test do
   gem 'shoulda-matchers', require: false
   gem 'database_cleaner'
   gem 'codeclimate-test-reporter', require: false
+  gem 'coveralls', require: false
 end
 
 group :production do
