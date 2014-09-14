@@ -38,8 +38,11 @@ module Apify
 
   # DELETE /api/v{api_version}/{plural_resource_name}/{id}
   def destroy
-    @resource.destroy
-    head :no_content
+    if resource.destroy
+      head :no_content, status: :ok
+    else
+      render json: resource.errors, status: :unprocessable_entity
+    end
   end
 
   private

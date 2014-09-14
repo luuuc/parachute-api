@@ -15,7 +15,7 @@ RSpec.describe Api::V1::Manage::UsersController, type: :controller do
 
       it "responds successfully with an HTTP 200 status code" do
         expect(response).to be_success
-        expect(response.code).to eq("200")
+        expect(response.code).to eq '200'
       end
 
       it "loads all of the users" do
@@ -35,36 +35,84 @@ RSpec.describe Api::V1::Manage::UsersController, type: :controller do
 
       it "responds successfully with an HTTP 200 status code" do
         expect(response).to be_success
-        expect(response.code).to eq("200")
+        expect(response.code).to eq '200'
       end
     end
 
-    describe "without admin token" do
-      after(:each) { expect(response.status).to eq(401) }
+    # context "POST #create" do
+    #   let(:app_params) { FactoryGirl.attributes_for(:app) }
 
-      context "No token" do
-        before(:each) { clearToken }
+    #   before do
+    #     post :create, app: app_params
+    #   end
 
-        it "GET #index is unauthorized" do
-          get :index, format: :json
-        end
+    #   it "should respond successfully with an HTTP 201 status code" do
+    #     expect(response).to be_success
+    #     expect(response.code).to eq("201")
+    #   end
+    # end
 
-        it "GET #show is unauthorized" do
-          get :show, id: admin.name, format: :json
-        end
+    context "PATCH #update" do
+      let!(:user) { create(:user) }
+
+      before do
+        patch :update, id: user.name, user: { admin: true }
       end
 
-      context "User token" do
-        let(:user) { create(:user) }
-        before(:each) { authWithUser(user) }
+      it "responds successfully with an HTTP 204 status code" do
+        expect(response).to be_success
+        expect(response.code).to eq '200'
+      end
 
-        it "GET #index is unauthorized" do
-          get :index, format: :json
-        end
+      it "should have changed the user's language attribute" do
+        user.reload
+        expect(user.admin).to eq true
+      end
+    end
 
-        it "GET #show is unauthorized" do
-          get :show, id: admin.name, format: :json
-        end
+    context "DELETE #destroy" do
+      let!(:user) { create(:user) }
+
+      before do
+        delete :destroy, id: user.name
+      end
+
+      it "responds successfully with an HTTP 204 status code" do
+        expect(response).to be_success
+        expect(response.code).to eq '204'
+      end
+
+      it "should destroy the user" do
+        expect(User.find_by(name: user.name)).to be_nil
+      end
+    end
+  end
+
+  describe "without admin token" do
+    after(:each) { expect(response.status).to eq(401) }
+
+    context "No token" do
+      before(:each) { clearToken }
+
+      it "GET #index is unauthorized" do
+        get :index, format: :json
+      end
+
+      it "GET #show is unauthorized" do
+        get :show, id: admin.name, format: :json
+      end
+    end
+
+    context "User token" do
+      let(:user) { create(:user) }
+      before(:each) { authWithUser(user) }
+
+      it "GET #index is unauthorized" do
+        get :index, format: :json
+      end
+
+      it "GET #show is unauthorized" do
+        get :show, id: admin.name, format: :json
       end
     end
   end
