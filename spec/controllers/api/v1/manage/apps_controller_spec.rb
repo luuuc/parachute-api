@@ -7,7 +7,7 @@ RSpec.describe Api::V1::Manage::AppsController, type: :controller do
     before(:each) { authWithUser(admin) }
 
     context "GET #index" do
-      let!(:apps) { create_list(:app, 3) }
+      let!(:apps) { create_list(:app, 2) }
 
       before do
         get :index, format: :json
