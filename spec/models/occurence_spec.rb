@@ -1,5 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Occurence, :type => :model do
-  #pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Occurence, type: :model do
+  it "should have a factory" do
+    expect(build(:occurence)).to be_valid
+  end
 end

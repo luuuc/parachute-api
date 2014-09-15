@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   it "should have a factory" do
-    expect(FactoryGirl.build(:user)).to be_valid
+    expect(build(:user)).to be_valid
   end
 
   context "plugins" do
@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
   end
 
   context "validations" do
-    subject { FactoryGirl.create(:user) }
+    subject { create(:user) }
 
     it { should validate_presence_of(:name) }
     it { should validate_uniqueness_of(:name).case_insensitive }
@@ -20,9 +20,17 @@ RSpec.describe User, type: :model do
     it { should validate_inclusion_of(:time_zone).in_array(ActiveSupport::TimeZone.all.map(&:name)) }
   end
 
+  context "public methods" do
+    it "should regenerate a 32 characters long authentication token" do
+      user = create(:user)
+      authentication_token = user.authentication_token
+      expect(user.regenerate_authentication_token).not_to eq(authentication_token)
+    end
+  end
+
   context "private methods" do
     it "should generate a 32 characters long authentication token after creation" do
-      user = FactoryGirl.create(:user)
+      user = create(:user)
       expect(user.authentication_token.length).to eq(32)
     end
   end

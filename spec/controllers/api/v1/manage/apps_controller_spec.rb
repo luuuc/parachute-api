@@ -58,7 +58,7 @@ RSpec.describe Api::V1::Manage::AppsController, type: :controller do
         patch :update, id: app.name, app: { repo_path: changes }
       end
 
-      it "responds successfully with an HTTP 204 status code" do
+      it "responds successfully with an HTTP 200 status code" do
         expect(response).to be_success
         expect(response.code).to eq '200'
       end

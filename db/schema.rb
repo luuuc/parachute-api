@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140913093756) do
     t.uuid     "issue_id"
     t.integer  "line"
     t.string   "location"
-    t.string   "method"
+    t.string   "method_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 20140913093756) do
     t.hstore   "environment_data"
     t.hstore   "session_data"
     t.hstore   "user_data"
-    t.hstore   "additional_data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

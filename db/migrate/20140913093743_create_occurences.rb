@@ -11,7 +11,6 @@ class CreateOccurences < ActiveRecord::Migration
       t.hstore :environment_data
       t.hstore :session_data
       t.hstore :user_data
-      t.hstore :additional_data
 
       t.timestamps
     end

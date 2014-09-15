@@ -5,7 +5,7 @@ class CreateBacktraces < ActiveRecord::Migration
 
       t.integer :line
       t.string :location
-      t.string :method
+      t.string :method_name
 
       t.timestamps
     end

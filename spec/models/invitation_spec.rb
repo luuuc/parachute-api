@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Invitation, type: :model do
   it "should have a factory" do
-    expect(FactoryGirl.build(:invitation)).to be_valid
+    expect(build(:invitation)).to be_valid
   end
 
   context "validations" do
-    subject { FactoryGirl.create(:invitation) }
+    subject { create(:invitation) }
 
     it { should validate_presence_of(:name) }
     it { should validate_uniqueness_of(:email).case_insensitive }
@@ -16,7 +16,7 @@ RSpec.describe Invitation, type: :model do
 
   context "private methods" do
     it "should generate a 32 characters long token after creation" do
-      invitation = FactoryGirl.create(:invitation)
+      invitation = create(:invitation)
       expect(invitation.token.length).to eq(32)
     end
   end
